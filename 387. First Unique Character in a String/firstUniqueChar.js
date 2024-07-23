@@ -22,3 +22,19 @@ var firstUniqChar = function(s) {
     if(s.slice(0, s.length-1).indexOf(s[s.length-1]) <0) return s.length-1;
     return -1;
 };
+
+var firstUniqChar = function(s) {
+    let array = s.split('');
+    let set = new Set(array);
+    set = [...set];
+    let index = -1, i=0;
+    while (i<set.length) {
+      let len = array.filter(ele => ele == set[i]).length;
+      if(len === 1) {
+        index = array.indexOf(set[i]);
+        break;
+      }
+      i++;
+    }
+    return index;
+  };

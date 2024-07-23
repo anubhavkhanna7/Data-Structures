@@ -17,3 +17,21 @@ var moveZeroes = function(nums) {
     base++;
   }
 };
+
+var moveZeroes = function(nums) {
+  let pos = 0;
+  for (let i = 0; i<nums.length; i++) {
+      if(nums[i] !== 0) {
+          if(pos < i) {
+              nums[pos] = nums[i];
+              nums[i] = 0
+          }
+          pos++
+      }
+  }
+  while(pos < nums.length) {
+      nums[pos] = 0
+      pos++;
+  }
+  return nums
+};
