@@ -7,3 +7,15 @@ var pivotIndex = function(nums) {
     }
     return index;
 };
+
+var pivotIndex = function(nums) {
+    let i = 0, sum = nums.reduce((acc, val) => acc + val, 0), currsum = 0;
+    while(i < nums.length) {
+        currsum += nums[i]
+        if(currsum === sum) return i
+        sum -= nums[i]
+        i++
+    }
+
+    return -1
+};
