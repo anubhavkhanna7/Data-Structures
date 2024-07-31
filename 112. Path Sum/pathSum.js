@@ -38,3 +38,14 @@ var hasPathSum = function(root, targetSum) {
     const right = root.right && hasPathSum(root.right, targetSum-root.val) || false;
     return left || right;
 };
+
+// More Optimised
+
+var hasPathSum = function(root, targetSum) {
+    if (!root) return false
+    if (!(root.left || root.right)) return targetSum === root.val
+    let check = false
+    if (root.left && !check) check = hasPathSum(root.left, targetSum-root.val) || check
+    if (root.right && !check) check = hasPathSum(root.right, targetSum-root.val) || check
+    return check
+};
