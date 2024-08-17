@@ -32,3 +32,15 @@ var maxArea = function(height) {
   }
   return maxVal
 };
+
+var maxArea = function(height) {
+  let maxArea = 0, leftEdge = 0, rightEdge = height.length-1
+  while(leftEdge < rightEdge) {
+      let maxHeight = Math.min(height[leftEdge], height[rightEdge])
+      let currentArea = maxHeight * (rightEdge - leftEdge)
+
+      maxArea = Math.max(maxArea, currentArea)
+      height[leftEdge] > height[rightEdge] ? rightEdge-- : leftEdge++
+  }
+  return maxArea
+};

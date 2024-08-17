@@ -18,3 +18,20 @@ var longestConsecutive = function(nums) {
     }
     return maxLength;
 };
+
+var longestConsecutive = function(nums) {
+    let setNums = new Set(nums)
+    let maxCount = 0
+
+    for (const num of setNums) {
+        if (!setNums.has(num-1)) {
+            let currentCount = 1
+            while(setNums.has(num+currentCount)) {
+                currentCount++
+            }
+            maxCount = Math.max(maxCount, currentCount)
+        }
+    }
+
+    return maxCount
+};
