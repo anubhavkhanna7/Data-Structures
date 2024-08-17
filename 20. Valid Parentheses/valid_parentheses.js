@@ -58,3 +58,23 @@ var isValid = function(s) {
   } 
   return arr.length === 0;
 };
+
+var isValid = function(s) {
+  let stack = [], startSet = new Set(['(', '{', '[']), closeMap = new Map([
+      [')', '('],
+      [']', '['],
+      ['}', '{']
+  ]);
+
+  for (let i = 0; i< s.length; i++) {
+      if (startSet.has(s[i])) {
+          stack.push(s[i])
+      } else if (stack[stack.length-1] !== closeMap.get(s[i])) {
+              return false
+      } else {
+          stack.pop()
+      }
+  }
+
+  return stack.length === 0
+};
