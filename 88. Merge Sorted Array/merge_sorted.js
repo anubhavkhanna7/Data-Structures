@@ -29,3 +29,26 @@ var merge = function(nums1, m, nums2, n) {
     }
   }
 };
+
+var merge = function(nums1, m, nums2, n) {
+  let endPtr = nums1.length - 1;
+  let secondPtr = n - 1;
+  let firstPtr = m - 1;
+
+  while (secondPtr >= 0 && firstPtr >= 0) {
+      if (nums1[firstPtr] >= nums2[secondPtr]) {
+          nums1[endPtr] = nums1[firstPtr];
+          firstPtr--;
+      } else {
+          nums1[endPtr] = nums2[secondPtr];
+          secondPtr--;
+      }
+      endPtr--;
+  }
+
+  while (secondPtr >= 0) {
+      nums1[endPtr] = nums2[secondPtr];
+      endPtr--;
+      secondPtr--;
+  }
+};
