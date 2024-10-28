@@ -10,9 +10,7 @@ Given an integer n, return a string array answer (1-indexed) where:
 
 ## Constraints:
 
- - 1 <= nums.length <= 1000
- - 0 <= nums[i] <= 10^6
- - 1 <= k <= min(50, nums.length)
+ - 1 <= n <= 10^4
 
 ## Example 1:
 ```sh
